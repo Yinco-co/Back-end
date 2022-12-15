@@ -1,3 +1,4 @@
+const express = require('express');
 const msgerForm = get(".msger-inputarea");
 const msgerInput = document.getElementById("testo");
 const msgerChat = get(".messaggi");
@@ -79,3 +80,5 @@ function get(selector, root = document) {
 function random(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
+
+module.exports=msgerInput;

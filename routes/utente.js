@@ -6,4 +6,4 @@ const utenteController = require('../controllers/utente')
 
 router.post('/utente', utenteController.newUtente)
 
-module.exports = router;
+module.exports = router; 

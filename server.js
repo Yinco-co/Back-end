@@ -2,12 +2,21 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv').config();
 const app = express();
-const routes = require('./routes/docente');
+const routes = require('./routes/docente.js')//(app, {});
 const path = require('path');
+const multer = require ('multer');
+
 app.use(express.json());
+app.use(multer().none());
+app.use(express.urlencoded({extended:false}));
 
-app.use('/', routes)
+app.use('/docente', require('./routes/docente'));
 
+app.get('/api', (req, res) => {
+  res.json({ message: "Hello from server!" });
+});
+
+app.use('/damn', require('./routes/informazione'));
 
 mongoose.connect(
   process.env.MONGODB_URI,

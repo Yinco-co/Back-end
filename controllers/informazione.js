@@ -1,17 +1,16 @@
-const info = require('../models/informazione');
+const informazione = require('../models/informazione');
 
-const getOneInfo = (req, res) => {
-    let tahs = req.params.tags; //prende le tag dell'info
+const getOneInfo = async (req, res) => {
+    let tags = req.query.tags; //prende le tag dell'info
     console.log(tags);
-
-    //trova il docente con quel cognome
-   info.findOne({ tags: tags }, (err, tags) => {
-        if (err || !tags) {
-            console.log(err);
-            return res.json({ message: "info non trovata" });
+    let information = await informazione.findOne({tags: {$regex:req.query.tags}}, {title:1, year:1, body:1, tags:1}, (err, data) => {
+        if (err || !data){
+            return res.status(404).json("L'informazione non è presente");
         }
-        else return res.json(tags); //ritorna il docente trovato
-    }); 
+        else {
+            return res.status(200).json(data);
+         }
+    }).clone().catch(function(err){console.log(err)});
 }; 
 module.exports = {
     getOneInfo,

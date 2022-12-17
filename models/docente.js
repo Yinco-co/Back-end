@@ -2,10 +2,10 @@ const mongoose=require('mongoose');
 
 const docenteSchema = new mongoose.Schema({
     cognome: {type:String, required:true},
-    url: String
+    url: {type:String, required:true}
 });
 
-const Docente = mongoose.model('docente', docenteSchema);
-module.exports=Docente;
+const Docente = mongoose.model('docente', docenteSchema, "Docenti");
+module.exports= Docente;
 
 

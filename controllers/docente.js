@@ -1,18 +1,17 @@
 const docente = require('../models/docente');
 
-const getOneDocente = (req, res) => {
-    let cognome = req.params.cognome; //prende il cognome del docente
-    console.log(cognome);
-
-    //trova il docente con quel cognome
-   docente.findOne({ cognome: cognome }, (err, docente) => {
-        if (err || !docente) {
-            console.log(err);
-            return res.json({ message: "Il docente non esiste." });
+const getOneDocente = async(req, res) => {
+    let surname = req.query.cognome;
+    console.log(surname);
+    let cognome = await docente.findOne({ cognome: req.query.cognome }, {url: 1}, (err, data) => {
+        if (err || !data){
+            return res.status(404).json("Il docente non è presente");
         }
-        else return res.json(docente); //ritorna il docente trovato
-    }); 
-}; 
+        else {
+            return res.status(200).json(data);
+         }
+    }).clone().catch(function(err){console.log(err)}); 
+};
 module.exports = {
     getOneDocente,
 };

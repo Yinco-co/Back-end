@@ -1,18 +1,19 @@
 const express = require('express'); //import express
-
-// 1.
+const docente = require('../models/docente.js')
 const router = express.Router();
-// 2.
 const docenteController = require('../controllers/docente');
-// 3.
-// router.post('/tea', teaController.newTea);
 
-// router.delete('/tea', teaController.deleteAllTea);
+router.get('/?', docenteController.getOneDocente);
 
-// router.get('/docente', teaController.getAllDocente);
-router.get('/docente', docenteController.getOneDocente);
-
-// router.delete('/tea/:name', teaController.deleteOneTea);
-
-// 4.
+/*router.get('/', async (req, res) =>{
+    let books = await docente.find({});
+    books = books.map( (docente) =>{
+        return {
+            self: docente.cognome,
+            link: docente.url
+        };
+        });
+        res.status(200).json(books);
+    });
+*/
 module.exports = router; // export to use in server.js

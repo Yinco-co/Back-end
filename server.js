@@ -5,7 +5,10 @@ const app = express();
 const routes = require('./routes/docente.js')//(app, {});
 const path = require('path');
 const multer = require ('multer');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(express.json());
 app.use(multer().none());
 app.use(express.urlencoded({extended:false}));

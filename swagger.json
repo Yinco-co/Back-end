@@ -20,6 +20,17 @@
     "paths":{
         "/docente/?": {
             "get":{
+                "parameters":[
+                    {
+                    "in":"query",
+                    "name":"cognome",
+                    "description":"Il cognome del docente inserito dall'utente e da cercare sul database",
+                    "required":"true",
+                    "schema":{
+                        "$ref":"#/definitions/Docenti"
+                    }
+                    }
+                ],
                 "url": [
                     "Docenti"
                 ],
@@ -45,6 +56,17 @@
         },
             "/damn/?":{
                 "get":{
+                    "parameters":[
+                        {
+                        "in":"query",
+                        "name":"tags",
+                        "description":"Le parole chiave inserite dall'utente per cui bisogna cercare l'informazione richiesta",
+                        "required":"true",
+                        "schema":{
+                            "$ref":"#/definitions/Info"
+                        }
+                        }
+                    ],
                     "tags":[
                         "Users"
                     ],
@@ -94,10 +116,13 @@
             }
         },
         "Info":{
-            "required":["title", "year", "body", "tags"],
+            "required":["title", "year", "body"],
             "properties" : {
                 "title":{
                     "type":"string"
+                },
+                "year": {
+                    "type": "number"
                 },
                 "body":{
                     "type":"string"

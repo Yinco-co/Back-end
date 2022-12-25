@@ -20,10 +20,6 @@ app.use(express.urlencoded({extended:false}));
 
 app.use('/docente', require('./routes/docente'));
 
-app.get('/api', (req, res) => {
-  res.json({ message: "Hello from server!" });
-});
-
 app.use('/damn', require('./routes/informazione'));
 
 module.exports = app;

@@ -3,7 +3,7 @@ const msgerInput = document.getElementById("testo");
 const msgerChat = get(".messaggi");
 
 const docenti = ["Ranise", "Passerone", "Giorgini", "Tomasi", "Bucchiarone", "Casari", "Bouquet", "Velha", "Montresor", "Iacca"];
-
+const info = ["tasse", "rate", "contributi", "esoneri", "borsa di studio", "opera universitaria", "invalidità", "alloggio", "casa", "libera circolazione", "trasporti", "bus", "treni", "taxes", "fees", "contributions", "tuition fees", "exemptions", "scholarship", "disability", "housing", "home", "free circulation", "transportation", "buses", "trains" ];
 const BOT_IMG = "Img/Logo.png";
 const BOT_NAME = "YINCO";
 const PERSON_NAME = "Studente";
@@ -16,10 +16,15 @@ msgerForm.addEventListener("submit", event => {
 
   appendMessageUser(PERSON_NAME, "right", msgText);
 
-  if(filter(msgText, docenti) == 1) {
+  const filterDocenti = filter(msgText, docenti);
+  const filterInfo = filter(msgText, info);
+
+  if (filterDocenti == 1) {
     botResponseDocente();
-  } else {
+  } else if (filterInfo == 2) {
     botResponseInfo();
+  } else {
+    appendMessageBotErrore(BOT_NAME, BOT_IMG, "left");
   }
 });
 
@@ -106,10 +111,17 @@ function appendMessageBotErrore(name, img, side) {
 
 function botResponseDocente() {
   const msgText = msgerInput.value;
+  
+  // estrai il cognome del docente che l'utente sta cercando dal messaggio, ignorando la distinzione tra maiuscole e minuscole
+  const cognome = msgText.match(new RegExp(docenti.join("|"), 'gi'))[0];
+  
+  // rendi il primo carattere del cognome maiuscolo
+  const cognomeCorretto = cognome.charAt(0).toUpperCase() + cognome.slice(1);
+  
   const delay = msgText.split(" ").length * 100;
   
   setTimeout(() => {
-    fetch('../docente/?cognome=' + msgText)
+    fetch('../docente/?cognome=' + cognomeCorretto)
       .then(res => res.json())
       .then (function(data) {
         appendMessageBotDocente(BOT_NAME, BOT_IMG, "left", data.url);
@@ -120,10 +132,14 @@ function botResponseDocente() {
 
 function botResponseInfo() {
   const msgText = msgerInput.value;
+  
+  // estrai il termine che l'utente sta cercando dal messaggio
+  const termine = msgText.match(new RegExp(info.join("|"), 'gi'))[0];
+  
   const delay = msgText.split(" ").length * 100;
   
   setTimeout(() => {
-    fetch('../damn/?tags=' + msgText)
+    fetch('../damn/?tags=' + termine.toLowerCase())
       .then(res => res.json())
       .then (function(data) {
         if(data.body != undefined) {
@@ -141,14 +157,16 @@ function get(selector, root = document) {
   return root.querySelector(selector);
 }
 
-function filter(question, term) {
-  const frase = question.match(/[\w']+/g);
-
-  for(let i = 0; i < frase.length; i++) {
-    if(docenti.includes(frase[i])) {
-      return 1;
+function filter(msgText, array) {
+  for (let i = 0; i < array.length; i++) {
+    if (RegExp(array[i], 'gi').test(msgText)) {
+      if (array === docenti) {
+        return 1;
+      } else if (array === info) {
+        return 2;
+      }
     }
   }
-
+  
   return 0;
 }

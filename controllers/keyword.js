@@ -1,17 +1,29 @@
-   //const express = require('express');
-  // const msgerInput= require('./FrontEndYinco/js/GestioneChat')
-  function filter(question, term) {
-    const lowerCaseQuestion = question.toLowerCase();
-    const lowerCaseTerm = term.toLowerCase();
-  
-    // Usa una regex per separare le parole nel messaggio in base agli spazi o ai segni di punteggiatura
-    const words = lowerCaseQuestion.match(/[\w']+/g);
-  
-    return words.filter((word) => word === lowerCaseTerm);
+const docenti = ["Ranise", "Passerone", "Giorgini", "Tomasi", "Bucchiarone", "Casari", "Bouquet", "Velha", "Montresor", "Iacca"];
+const info = ["tasse", "rate", "contributi", "esoneri", "borsa di studio", "opera universitaria", "invalidità", "alloggio", "casa", "libera circolazione", "trasporti", "bus", "treni"]
+const msgText = 'info su bus';
+
+function filter(msgText, array) {
+  for (let i = 0; i < array.length; i++) {
+    if (RegExp(array[i], 'gi').test(msgText)) {
+      if (array === docenti) {
+        return 1;
+      } else if (array === info) {
+        return 2;
+      }
+    }
   }
-  const question = msgerInput;
-  const term = 'ciao';
   
-  const filteredWords = filter(question, term);
-  console.log(filteredWords); 
-  
+  return 0;
+}
+
+const filterDocenti = filter(msgText, docenti);
+const filterInfo = filter(msgText, info);
+
+  if (filterDocenti == 1) {
+    console.log('true');
+  } else if (filterInfo == 2) {
+    console.log('false');
+  } else {
+    console.log('error');
+    }
+

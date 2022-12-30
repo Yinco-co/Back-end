@@ -3,7 +3,7 @@ const msgerInput = document.getElementById("testo");
 const msgerChat = get(".messaggi");
 
 const docenti = ["Ranise", "Passerone", "Giorgini", "Tomasi", "Bucchiarone", "Casari", "Bouquet", "Velha", "Montresor", "Iacca"];
-const info = ["tasse", "rate", "contributi", "esoneri", "borsa di studio", "opera universitaria", "invalidità", "alloggio", "casa", "libera circolazione", "trasporti", "bus", "treni", "taxes", "fees", "contributions", "tuition fees", "exemptions", "scholarship", "disability", "housing", "home", "free circulation", "transportation", "buses", "trains"];
+const info = ["tasse", "rate", "contributi", "esoneri", "borsa di studio", "opera universitaria", "invalidità", "alloggio", "casa", "libera circolazione", "trasporti", "bus", "treni", "taxes", "fees", "contributions", "tuition fees", "exemptions", "scholarship", "disability", "housing", "home", "free circulation", "transportation", "buses", "trains" ];
 const BOT_IMG = "Img/Logo.png";
 const BOT_NAME = "YINCO";
 const PERSON_NAME = "Studente";
@@ -111,7 +111,6 @@ function appendMessageBotErrore(name, img, side) {
 
 function botResponseDocente() {
   const msgText = msgerInput.value;
-  
   // estrai il cognome del docente che l'utente sta cercando dal messaggio, ignorando la distinzione tra maiuscole e minuscole
   const cognome = msgText.match(new RegExp(docenti.join("|"), 'gi'))[0];
   
@@ -132,7 +131,6 @@ function botResponseDocente() {
 
 function botResponseInfo() {
   const msgText = msgerInput.value;
-  
   // estrai il termine che l'utente sta cercando dal messaggio
   const termine = msgText.match(new RegExp(info.join("|"), 'gi'))[0];
   
@@ -153,19 +151,16 @@ function botResponseInfo() {
 }
 
 // Utils
-function get(selector, root = document) {1
+function get(selector, root = document) {
   return root.querySelector(selector);
 }
 
 function filter(msgText, array) {
-  for (let i = 0; i < array.length; i++) {
-    if (RegExp(array[i], 'gi').test(msgText)) {
-      if (array === docenti) {
-        return 1;
-      } else if (array === info) {
-        return 2; 
+    if (docenti.some(docente => msgText.includes(docente))) {
+    return 1;
+    } else if (info.some(info => msgText.includes(info))) {
+    return 2;
+    } else {
+    return 0;
     }
-  }
-  return 0;
-  }
-}
+    }

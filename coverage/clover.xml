@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1671990830030" clover="3.2.0">
-  <project timestamp="1671990830030" name="All files">
+<coverage generated="1672410433105" clover="3.2.0">
+  <project timestamp="1672410433105" name="All files">
     <metrics statements="57" coveredstatements="55" conditionals="8" coveredconditionals="8" methods="6" coveredmethods="4" elements="71" coveredelements="67" complexity="0" loc="57" ncloc="57" packages="4" files="7" classes="7"/>
     <package name="Back-end">
       <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="app.js" path="/Users/zakariaaoukaili/Desktop/Back-end/app.js">
+      <file name="app.js" path="/Users/zakariaaoukaili/Desktop/Yinco-Co/Back-end/app.js">
         <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
@@ -27,7 +27,7 @@
     </package>
     <package name="Back-end.controllers">
       <metrics statements="20" coveredstatements="18" conditionals="8" coveredconditionals="8" methods="6" coveredmethods="4"/>
-      <file name="docente.js" path="/Users/zakariaaoukaili/Desktop/Back-end/controllers/docente.js">
+      <file name="docente.js" path="/Users/zakariaaoukaili/Desktop/Yinco-Co/Back-end/controllers/docente.js">
         <metrics statements="10" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -40,15 +40,15 @@
         <line num="13" count="0" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
       </file>
-      <file name="informazione.js" path="/Users/zakariaaoukaili/Desktop/Back-end/controllers/informazione.js">
+      <file name="informazione.js" path="/Users/zakariaaoukaili/Desktop/Yinco-Co/Back-end/controllers/informazione.js">
         <metrics statements="10" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
-        <line num="4" count="12" type="stmt"/>
-        <line num="5" count="12" type="stmt"/>
-        <line num="6" count="12" type="stmt"/>
-        <line num="7" count="12" type="cond" truecount="4" falsecount="0"/>
-        <line num="8" count="6" type="stmt"/>
+        <line num="4" count="11" type="stmt"/>
+        <line num="5" count="11" type="stmt"/>
+        <line num="6" count="11" type="stmt"/>
+        <line num="7" count="11" type="cond" truecount="4" falsecount="0"/>
+        <line num="8" count="5" type="stmt"/>
         <line num="11" count="6" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
@@ -56,14 +56,14 @@
     </package>
     <package name="Back-end.models">
       <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="docente.js" path="/Users/zakariaaoukaili/Desktop/Back-end/models/docente.js">
+      <file name="docente.js" path="/Users/zakariaaoukaili/Desktop/Yinco-Co/Back-end/models/docente.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
       </file>
-      <file name="informazione.js" path="/Users/zakariaaoukaili/Desktop/Back-end/models/informazione.js">
+      <file name="informazione.js" path="/Users/zakariaaoukaili/Desktop/Yinco-Co/Back-end/models/informazione.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -73,7 +73,7 @@
     </package>
     <package name="Back-end.routes">
       <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="docente.js" path="/Users/zakariaaoukaili/Desktop/Back-end/routes/docente.js">
+      <file name="docente.js" path="/Users/zakariaaoukaili/Desktop/Yinco-Co/Back-end/routes/docente.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
@@ -82,7 +82,7 @@
         <line num="6" count="2" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
       </file>
-      <file name="informazione.js" path="/Users/zakariaaoukaili/Desktop/Back-end/routes/informazione.js">
+      <file name="informazione.js" path="/Users/zakariaaoukaili/Desktop/Yinco-Co/Back-end/routes/informazione.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>

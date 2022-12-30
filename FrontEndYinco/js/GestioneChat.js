@@ -3,7 +3,7 @@ const msgerInput = document.getElementById("testo");
 const msgerChat = get(".messaggi");
 
 const docenti = ["Ranise", "Passerone", "Giorgini", "Tomasi", "Bucchiarone", "Casari", "Bouquet", "Velha", "Montresor", "Iacca"];
-const info = ["tasse", "rate", "contributi", "esoneri", "borsa di studio", "opera universitaria", "invalidità", "alloggio", "casa", "libera circolazione", "trasporti", "bus", "treni", "taxes", "fees", "contributions", "tuition fees", "exemptions", "scholarship", "disability", "housing", "home", "free circulation", "transportation", "buses", "trains" ];
+const info = ["tasse", "rate", "contributi", "esoneri", "borsa di studio", "opera universitaria", "invalidità", "alloggio", "casa", "libera circolazione", "trasporti", "bus", "treni", "taxes", "fees", "contributions", "tuition fees", "exemptions", "scholarship", "disability", "housing", "home", "free circulation", "transportation", "buses", "trains"];
 const BOT_IMG = "Img/Logo.png";
 const BOT_NAME = "YINCO";
 const PERSON_NAME = "Studente";
@@ -153,7 +153,7 @@ function botResponseInfo() {
 }
 
 // Utils
-function get(selector, root = document) {
+function get(selector, root = document) {1
   return root.querySelector(selector);
 }
 
@@ -163,10 +163,9 @@ function filter(msgText, array) {
       if (array === docenti) {
         return 1;
       } else if (array === info) {
-        return 2;
-      }
+        return 2; 
     }
   }
-  
   return 0;
+  }
 }

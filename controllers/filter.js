@@ -10,5 +10,5 @@ function filter(msgText, array) {
     return 0;
     }
     }
-    
-    module.exports = filter;
+
+  module.exports= filter;

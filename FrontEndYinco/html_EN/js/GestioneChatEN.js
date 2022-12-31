@@ -2,8 +2,8 @@ const msgerForm = get(".msger-inputarea");
 const msgerInput = document.getElementById("testo");
 const msgerChat = get(".messaggi");
 
-const docenti = ["Ranise", "Passerone", "Giorgini", "Tomasi", "Bucchiarone", "Casari", "Bouquet", "Velha", "Montresor", "Iacca"];
-const info = ["tasse", "rate", "contributi", "esoneri", "borsa di studio", "opera universitaria", "invalidità", "alloggio", "casa", "libera circolazione", "trasporti", "bus", "treni", "taxes", "fees", "contributions", "tuition fees", "exemptions", "scholarship", "disability", "housing", "home", "free circulation", "transportation", "buses", "trains"];
+const docenti = ["ranise", "passerone", "giorgini", "tomasi", "bucchiarone", "casari", "bouquet", "velha", "montresor", "iacca", "Ranise", "Iacca", "Montresor", "Velha", "Bouquet", "Casari", "Bucchiarone", "Tomasi", "Giorgini", "Passerone", "Ranise"];
+const info = ["tasse", "Tasse", "rate", "Rate", "contributi", "Contriburi", "esoneri", "Esoneri", "borsa di studio", "Borsa di studio", "Opera universitaria", "opera universitaria", "invalidità", "Invalidità", "Alloggio", "alloggio", "casa", "Casa", "Libera circolazione", "libera circolazione", "trasporti", "Trasporti", "Bus", "bus", "treni", "Treni", "Taxes", "taxes", "fees", "Fees", "Contributions", "contributions", "tuition fees", "Tuition fees", "exemptions", "Exemptions", "Scholarship", "scholarship", "Disability", "disability", "housing", "housing", "home", "Home", "Free circulation", "free circulation", "transportation", "Transportation", "Buses", "buses", "Trains", "trains" ];
 const BOT_IMG = "../Img/Logo.png";
 const BOT_NAME = "YINCO";
 const PERSON_NAME = "Studente";
@@ -158,15 +158,11 @@ function get(selector, root = document) {
 }
 
 function filter(msgText, array) {
-  for (let i = 0; i < array.length; i++) {
-    if (RegExp(array[i], 'gi').test(msgText)) {
-      if (array === docenti) {
-        return 1;
-      } else if (array === info) {
-        return 2;
-      }
-    }
-  }
-  
+  if (docenti.some(docente => msgText.includes(docente))) {
+  return 1;
+  } else if (info.some(info => msgText.includes(info))) {
+  return 2;
+  } else {
   return 0;
-}
+  }
+  }

@@ -1,7 +1,7 @@
 const filter = require('../controllers/filter');
 
-const docenti = ["Ranise", "Passerone", "Giorgini", "Tomasi", "Bucchiarone", "Casari", "Bouquet", "Velha", "Montresor", "Iacca"];
-const info = ["tasse", "rate", "contributi", "esoneri", "borsa di studio", "opera universitaria", "invalidità", "alloggio", "casa", "libera circolazione", "trasporti", "bus", "treni", "taxes", "fees", "contributions", "tuition fees", "exemptions", "scholarship", "disability", "housing", "home", "free circulation", "transportation", "buses", "trains"];
+const docenti = ["ranise", "passerone", "giorgini", "tomasi", "bucchiarone", "casari", "bouquet", "velha", "montresor", "iacca"];
+const info = ["tasse", "rate", "contributi", "esoneri", "borsa di studio", "opera universitaria", "invalidità", "alloggio", "casa", "libera circolazione", "trasporti", "bus", "treni", "taxes", "fees", "contributions", "tuition fees", "exemptions", "scholarship", "disability", "housing", "home", "free circulation", "transportation", "buses", "trains" ];
 
 describe('La funzione filter', () => {
   test('restituisce 1 quando il messaggio contiene una parola presente nell\'array docenti', () => {
@@ -9,7 +9,7 @@ describe('La funzione filter', () => {
     expect(filter(msgText, docenti)).toEqual(1);
   });
 
-  test('La funzione filter restituisce 2 quando il messaggio contiene una parola presente nell\'array info', () => {
+  test('restituisce 2 quando il messaggio contiene una parola presente nell\'array info', () => {
     const msgText = "Dammi informazioni sulle tasse";
     expect(filter(msgText, info)).toEqual(2);
   });

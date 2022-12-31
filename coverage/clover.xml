@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1672484056574" clover="3.2.0">
-  <project timestamp="1672484056574" name="All files">
+<coverage generated="1672485973171" clover="3.2.0">
+  <project timestamp="1672485973171" name="All files">
     <metrics statements="65" coveredstatements="63" conditionals="12" coveredconditionals="12" methods="9" coveredmethods="7" elements="86" coveredelements="82" complexity="0" loc="65" ncloc="65" packages="4" files="8" classes="8"/>
     <package name="Back-end">
       <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -49,7 +49,7 @@
         <line num="7" count="53" type="cond" truecount="2" falsecount="0"/>
         <line num="8" count="1" type="stmt"/>
         <line num="10" count="2" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
       </file>
       <file name="informazione.js" path="/Users/zakariaaoukaili/Desktop/Yinco-Co/Back-end/controllers/informazione.js">
         <metrics statements="10" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="2"/>

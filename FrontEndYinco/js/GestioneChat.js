@@ -2,8 +2,8 @@ const msgerForm = get(".msger-inputarea");
 const msgerInput = document.getElementById("testo");
 const msgerChat = get(".messaggi");
 
-const docenti = ["ranise", "passerone", "giorgini", "tomasi", "bucchiarone", "casari", "bouquet", "velha", "montresor", "iacca", "Ranise", "Iacca", "Montresor", "Velha", "Bouquet", "Casari", "Bucchiarone", "Tomasi", "Giorgini", "Passerone", "Ranise"];
-const info = ["tasse", "Tasse", "rate", "Rate", "contributi", "Contriburi", "esoneri", "Esoneri", "borsa di studio", "Borsa di studio", "Opera universitaria", "opera universitaria", "invalidità", "Invalidità", "Alloggio", "alloggio", "casa", "Casa", "Libera circolazione", "libera circolazione", "trasporti", "Trasporti", "Bus", "bus", "treni", "Treni", "Taxes", "taxes", "fees", "Fees", "Contributions", "contributions", "tuition fees", "Tuition fees", "exemptions", "Exemptions", "Scholarship", "scholarship", "Disability", "disability", "housing", "housing", "home", "Home", "Free circulation", "free circulation", "transportation", "Transportation", "Buses", "buses", "Trains", "trains" ];
+const docenti = ["ranise", "passerone", "giorgini", "tomasi", "bucchiarone", "casari", "bouquet", "velha", "montresor", "iacca"];
+const info = ["tasse", "rate", "contributi", "esoneri", "borsa di studio", "opera universitaria", "invalidità", "alloggio", "casa", "libera circolazione", "trasporti", "bus", "treni", "taxes", "fees", "contributions", "tuition fees", "exemptions", "scholarship", "disability", "housing", "home", "free circulation", "transportation", "buses", "trains" ];
 const BOT_IMG = "Img/Logo.png";
 const BOT_NAME = "YINCO";
 const PERSON_NAME = "Studente";
@@ -114,7 +114,7 @@ function botResponseDocente() {
   const cognome = msgText.match(new RegExp(docenti.join("|"), 'gi'))[0];
   
   // rendi il primo carattere del cognome maiuscolo
-  const cognomeCorretto = cognome.charAt(0).toUpperCase() + cognome.slice(1);
+  const cognomeCorretto = cognome.charAt(0).toUpperCase() + cognome.slice(1).toLowerCase();
   
   const delay = msgText.split(" ").length * 100;
   
@@ -155,11 +155,11 @@ function get(selector, root = document) {
 }
 
 function filter(msgText, array) {
-    if (docenti.some(docente => msgText.includes(docente))) {
+  if (docenti.some(docente => msgText.toLowerCase().includes(docente.toLowerCase()))) {
     return 1;
-    } else if (info.some(info => msgText.includes(info))) {
+  } else if (info.some(info => msgText.toLowerCase().includes(info.toLowerCase()))) {
     return 2;
-    } else {
+  } else {
     return 0;
-    }
-    }
+  }
+}
